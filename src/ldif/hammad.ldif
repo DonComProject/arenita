@@ -1,0 +1,14 @@
+dn: uid=hammad,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: hammad
+sn: Hammad
+givenName: Hammad
+cn: Hammad El Guapo
+displayName: Hammad El Guapo
+uidNumber: 10009
+gidNumber: 10000
+userPassword: hammad123
+loginShell: /bin/false
+homeDirectory: /home/hammad
