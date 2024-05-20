@@ -1,0 +1,14 @@
+dn: uid=jordi,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: jordi
+sn: Prime
+givenName: Jordi
+cn: Jordi Prime
+displayName: Jordi Prime
+uidNumber: 10002
+gidNumber: 10000
+userPassword: password123
+loginShell: /bin/false
+homeDirectory: /home/jordi
