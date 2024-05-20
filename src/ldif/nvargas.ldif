@@ -1,0 +1,14 @@
+dn: uid=nvargas,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: nvargas
+sn: Vargas
+givenName: Nidia
+cn: Nidia Vargas
+displayName: Nidia Vargas
+uidNumber: 10005
+gidNumber: 10000
+userPassword: password123
+loginShell: /bin/bash
+homeDirectory: /home/nvargas
