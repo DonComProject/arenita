@@ -13,7 +13,7 @@ sudo apt-get install -y ansible sshpass python3-pip
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N "" -q <<< y
 
 # Copiar la clave pública al host local
-ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@$(hostname -I | cut -d ' ' -f1)
+ssh-copy-id -f -i ~/.ssh/id_rsa.pub usuario@$(hostname -I | cut -d ' ' -f1)
 
 # Actualizar Ansible con pip
 pip install --upgrade ansible
