@@ -23,7 +23,7 @@ wget https://raw.githubusercontent.com/DonComProject/arenita/main/src/ansible/wo
 
 # Instalar Ansible y otras dependencias necesarias
 print_message "Instalando Ansible y otras dependencias..." "$BLUE"
-sudo apt-get install -y ansible sshpass python3-pip
+sudo apt-get install -y openssh-server ansible sshpass python3-pip
 
 # Generar una clave SSH sin interacción y sobrescribir si ya existe
 print_message "Generando clave SSH..." "$BLUE"
