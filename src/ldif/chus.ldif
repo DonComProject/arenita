@@ -1,0 +1,14 @@
+dn: uid=chus,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: chus
+sn: Norris
+givenName: Chus
+cn: Chus Norris
+displayName: Chus Norris
+uidNumber: 10001
+gidNumber: 10000
+userPassword: password123
+loginShell: /bin/bash
+homeDirectory: /home/chus
