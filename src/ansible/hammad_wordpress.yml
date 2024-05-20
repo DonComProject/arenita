@@ -4,72 +4,71 @@
   become: yes
 
   tasks:
-	- name: Instala Mysql y apache2 con sus respectivos paquetes
-  	apt:
+    - name: Instala Mysql y apache2 con sus respectivos paquetes
+      apt:
+        update_cache: yes
+        pkg:
+          - mysql-server
+          - apache2
+          - php
+          - libapache2-mod-php
+          - php-fpm
+          - php-common
+          - php-mbstring
+          - php-xmlrpc
+          - php-soap
+          - php-gd
+          - php-xml
+          - php-intl
+          - php-mysql
+          - php-cli
+          - php-ldap
+          - php-zip
+          - php-curl
+          - python3-pymysql
 
-    	update_cache: yes
-    	pkg:
-          	- mysql-server
-          	- apache2
-          	- php
-          	- libapache2-mod-php
-          	- php-fpm
-          	- php-common
-          	- php-mbstring
-          	- php-xmlrpc
-          	- php-soap
-          	- php-gd
-          	- php-xml
-          	- php-intl
-          	- php-mysql
-          	- php-cli
-          	- php-ldap
-          	- php-zip
-          	- php-curl
-          	- python3-pymysql
+    - name: Crea la base de datos en MySQL
+      mysql_db:
+        name: wordpress
+        state: present
+        login_user: root
+        login_password: ""
+        login_unix_socket: /var/run/mysqld/mysqld.sock
 
-	- name: Crea la base de datos en MysQl
-  	mysql_db:
-    	name: wordpress
-    	state: present
-    	login_user: root
-    	login_password: ""
-    	login_unix_socket: /var/run/mysqld/mysqld.sock
+    - name: Crea el usuario en MySQL
+      mysql_user:
+        login_user: root
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        name: wordpress_user
+        host: localhost
+        password: 'superpassword'
+        priv: 'wordpress.*:ALL,GRANT'
+        state: present
 
-	- name: Crea el uuario en MysQl
-  	mysql_user:
-    	login_user: root
-    	login_unix_socket: /var/run/mysqld/mysqld.sock
-    	name: wordpress_user
-    	host: localhost
-    	password: 'superpassword'
-    	priv: 'wordpress.*:ALL,GRANT'
-    	state: present
+    - name: Activa módulos necesarios para apache
+      apache2_module:
+        name: proxy_fcgi
+        state: present
+      register: apache
+      notify: Reinicia apache
 
-	- name: Activa modulos necesarios para apache
-  	apache2_module:
-    	name: proxy_fcgi
-    	state: present
-  	register: apache
-  	notify: Reinicia apache
+    - name: Descarga y descomprime wordpress en /var/www/
+      ansible.builtin.unarchive:
+        src: https://es.wordpress.org/wordpress-5.9.3-es_ES.tar.gz
+        dest: /var/www/
+        remote_src: yes
+        owner: www-data
+        group: www-data
 
-	- name: Descarga e descomprimer wordpress en /var/www/
-  	ansible.builtin.unarchive:
-    	src: https://es.wordpress.org/wordpress-5.9.3-es_ES.tar.gz
-    	dest: /var/www/
-    	remote_src: yes
-    	owner: www-data
-    	group: www-data
-
-	- name: Cambia el virtualhost html por wordpress
-  	ansible.builtin.replace:
-    	path: /etc/apache2/sites-enabled/000-default.conf
-    	regexp: '/var/www/html'
-    	replace: '/var/www/wordpress'
-  	notify: Reinicia apache
+    - name: Cambia el virtualhost html por wordpress
+      ansible.builtin.replace:
+        path: /etc/apache2/sites-enabled/000-default.conf
+        regexp: '/var/www/html'
+        replace: '/var/www/wordpress'
+      notify: Reinicia apache
 
   handlers:
-	- name: Reinicia apache
-  	systemd:
-    	name: apache2
-    	state: restarted
+    - name: Reinicia apache
+      systemd:
+        name: apache2
+        state: restarted
