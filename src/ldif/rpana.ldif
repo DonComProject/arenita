@@ -1,0 +1,14 @@
+dn: uid=rpana,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: rpana
+sn: pana
+givenName: Rohan
+cn: Rohan Pana
+displayName: Rohan Pana
+uidNumber: 10003
+gidNumber: 10000
+userPassword: rpana
+loginShell: /bin/false
+homeDirectory: /home/rpana
