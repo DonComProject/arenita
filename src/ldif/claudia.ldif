@@ -1,0 +1,14 @@
+dn: uid=cchan,ou=users,dc=doncom,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: cchan
+sn: Chan
+givenName: Claudia
+cn: Claudia Chan
+displayName: Claudia Chan
+uidNumber: 10008
+gidNumber: 10000
+userPassword: claudia123
+loginShell: /bin/false
+homeDirectory: /home/cchan
