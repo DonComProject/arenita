@@ -4,7 +4,7 @@
 sudo apt-get update
 
 # Descargar el playbook de Ansible
-wget https://raw.githubusercontent.com/DonComProject/arenita/main/src/ansible/hammad_wordpress.yml
+wget https://raw.githubusercontent.com/DonComProject/arenita/main/src/ansible/wordpress.yml
 
 # Instalar Ansible y otras dependencias necesarias
 sudo apt-get install -y ansible sshpass python3-pip
