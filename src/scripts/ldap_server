@@ -18,3 +18,6 @@ ldapsearch -x -LLL -H ldap://localhost -D "cn=admin,dc=doncom,dc=com" -W -b "dc=
 # cn: admin
 # description: LDAP administrator
 ldapadd -x -D "cn=admin,dc=doncom,dc=com" -W -f admin.ldif
+
+wget https://raw.githubusercontent.com/DonComProject/arenita/main/src/ldif/ldap_structure.ldif
+ldapadd -x -D cn=admin,dc=doncom,dc=com -W -f ldap_structure.ldif
