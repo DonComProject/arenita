@@ -73,4 +73,4 @@ echo "host_key_checking = False" | sudo tee -a /etc/ansible/ansible.cfg
 
 # Ejecutar el playbook de Ansible
 print_message "Ejecutando el playbook de Ansible..." "$BLUE"
-sudo ansible-playbook hammad_wordpress.yml -k -b -K
+sudo ansible-playbook wordpress.yml -k -b -K
