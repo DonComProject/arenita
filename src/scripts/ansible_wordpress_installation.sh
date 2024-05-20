@@ -37,5 +37,14 @@ fi
 echo "[clientes]" | sudo tee -a /etc/ansible/hosts
 echo "$(hostname -I | cut -d ' ' -f1)" | sudo tee -a /etc/ansible/hosts
 
+# Crear archivo ansible.cfg si no existe
+if [ ! -f /etc/ansible/ansible.cfg ]; then
+  sudo touch /etc/ansible/ansible.cfg
+fi
+
+# Añadir configuración para deshabilitar la comprobación de la clave de host
+echo "[defaults]" | sudo tee -a /etc/ansible/ansible.cfg
+echo "host_key_checking = False" | sudo tee -a /etc/ansible/ansible.cfg
+
 # Ejecutar el playbook de Ansible
 sudo ansible-playbook hammad_wordpress.yml -k -b -K
