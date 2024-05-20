@@ -1,6 +1,7 @@
 ---
 - hosts: clientes
-  user: root
+  remote_user: usuario
+  become: true
 
   tasks:
 	- name: Instala Mysql y apache2 con sus respectivos paquetes
