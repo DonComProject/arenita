@@ -1,0 +1,14 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: myserver
+    username: ubuntu
+    password: $6$A8TPSoM/hhcc6jkv$5WAmDVk6JP0xj76DmeO711VC2grPZJAXmS88tiG13kowziCM1U0zZKNPkMhPv3HiSNV6c2JslSpsfA.UbmlQV1
+  storage:
+    layout:
+      name: direct
+  ssh:
+    install-server: yes
+  locale: es_ES.UTF-8
+  keyboard: {layout: es, variant: ''}
