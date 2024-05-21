@@ -1,0 +1,32 @@
+- name: Playbook de instalación de aplicaciones multimedia
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
+
+  - name: Instalar OBS Studio
+    apt:
+      name: obs-studio
+      state: present
+    tags: obs
+
+  - name: Instalar Audacity
+    apt:
+      name: audacity
+      state: present
+    tags: audacity
+
+  - name: Instalar Kdenlive
+    apt:
+      name: kdenlive
+      state: present
+    tags: kdenlive
+
+  - name: Instalar HandBrake
+    apt:
+      name: handbrake
+      state: present
+    tags: handbrake
