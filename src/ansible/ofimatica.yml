@@ -4,27 +4,21 @@
   tags: ofimatica
 
   tasks:
-    - name: Instalar LibreOffice
-      apt:
-        name: libreoffice
-        state: present
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
 
-    - name: Instalar OnlyOffice
-      apt:
-        name: onlyoffice-desktopeditors
-        state: present
+  - name: Instalar GnuCash
+    apt:
+      name: gnucash
+      state: present
 
-    - name: Instalar GnuCash
-      apt:
-        name: gnucash
-        state: present
+  - name: Instalar Scribus
+    apt:
+      name: scribus
+      state: present
 
-    - name: Instalar Scribus
-      apt:
-        name: scribus
-        state: present
-
-    - name: Instalar Calibre
-      apt:
-        name: calibre
-        state: present
+  - name: Instalar Calibre
+    apt:
+      name: calibre
+      state: present
