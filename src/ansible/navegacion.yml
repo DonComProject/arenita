@@ -1,0 +1,21 @@
+---
+- name: Playbook de instalación de herramientas de navegación
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
+
+  - name: Instalar Chromium
+    apt:
+      name: chromium-browser
+      state: present
+    tags: chromium
+
+  - name: Instalar FileZilla
+    apt:
+      name: filezilla
+      state: present
+    tags: filezilla
