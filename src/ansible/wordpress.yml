@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: Instala Mysql y apache2 con sus respectivos paquetes
+    - name: Instala Mysql y Apache2 con sus respectivos paquetes
       apt:
         update_cache: yes
         pkg:
