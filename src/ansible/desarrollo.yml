@@ -1,0 +1,74 @@
+- name: Playbook de instalación de herramientas de desarrollo
+  hosts: all
+  remote_user: pepito
+  become: yes
+  tasks:
+
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
+
+  - name: Agregar clave de Visual Studio Code
+    apt_key:
+      url: https://packages.microsoft.com/keys/microsoft.asc
+      state: present
+    tags: vscode
+
+  - name: Agregar repositorio de Visual Studio Code
+    apt_repository:
+      repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+      state: present
+    tags: vscode
+
+  - name: Instalar Visual Studio Code
+    apt:
+      name: code
+      state: present
+    tags: vscode
+
+  - name: Instalar Docker
+    apt:
+      name: docker.io
+      state: present
+    tags: docker
+
+  - name: Agregar clave de Node.js
+    apt_key:
+      url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+      state: present
+    tags: nodejs
+
+  - name: Agregar repositorio de Node.js
+    apt_repository:
+      repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+      state: present
+    tags: nodejs
+
+  - name: Instalar Node.js
+    apt:
+      name: nodejs
+      state: present
+    tags: nodejs
+
+  - name: Instalar Python
+    apt:
+      name: python3
+      state: present
+    tags: python
+
+  - name: Instalar GCC (GNU Compiler Collection)
+    apt:
+      name: gcc
+      state: present
+    tags: gcc
+
+  - name: Descargar paquete Atom
+    get_url:
+      url: https://github.com/atom/atom/releases/download/v1.60.0/atom-amd64.deb
+      dest: /tmp/atom-amd64.deb
+    tags: atom
+
+  - name: Instalar Atom desde paquete descargado
+    apt:
+      deb: /tmp/atom-amd64.deb
+    tags: atom
