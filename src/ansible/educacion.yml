@@ -1,0 +1,40 @@
+- name: Playbook de instalación de herramientas educativas
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
+
+  - name: Instalar dependencias para Flatpak
+    apt:
+      name: flatpak
+      state: present
+    tags: flatpak
+
+  - name: Agregar repositorio Flathub para Flatpak
+    command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    tags: flatpak
+
+  - name: Instalar GCompris desde Flathub
+    command: flatpak install -y flathub org.kde.gcompris
+    tags: gcompris
+
+  - name: Instalar Stellarium
+    apt:
+      name: stellarium
+      state: present
+    tags: stellarium
+
+  - name: Instalar GeoGebra
+    apt:
+      name: geogebra
+      state: present
+    tags: geogebra
+
+  - name: Instalar Anki
+    apt:
+      name: anki
+      state: present
+    tags: anki
