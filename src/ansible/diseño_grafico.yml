@@ -1,0 +1,38 @@
+- name: Playbook de instalación de herramientas de diseño gráfico
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Actualizar la lista de paquetes
+    apt:
+      update_cache: yes
+
+  - name: Instalar GIMP
+    apt:
+      name: gimp
+      state: present
+    tags: gimp
+
+  - name: Instalar Inkscape
+    apt:
+      name: inkscape
+      state: present
+    tags: inkscape
+
+  - name: Instalar Blender
+    apt:
+      name: blender
+      state: present
+    tags: blender
+
+  - name: Instalar Darktable
+    apt:
+      name: darktable
+      state: present
+    tags: darktable
+
+  - name: Instalar Synfig Studio
+    apt:
+      name: synfigstudio
+      state: present
+    tags: synfigstudio
