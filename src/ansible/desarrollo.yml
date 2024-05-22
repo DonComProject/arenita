@@ -1,6 +1,5 @@
 - name: Playbook de instalación de herramientas de desarrollo
   hosts: all
-  remote_user: pepito
   become: yes
   tasks:
 
