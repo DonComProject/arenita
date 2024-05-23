@@ -1,3 +1,4 @@
+---
 - name: Playbook de instalación de herramientas de diseño gráfico
   hosts: all
   become: yes
