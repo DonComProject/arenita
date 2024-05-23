@@ -1,3 +1,4 @@
+---
 - name: Playbook de instalación de aplicaciones multimedia
   hosts: all
   become: yes

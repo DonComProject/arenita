@@ -1,3 +1,4 @@
+---
 - name: Playbook de instalación de herramientas educativas
   hosts: all
   become: yes

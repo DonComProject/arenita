@@ -1,3 +1,4 @@
+---
 - name: Instalar programas de ofimática
   hosts: all
   become: yes
