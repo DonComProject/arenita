@@ -1,0 +1,25 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: doncom
+    username: admin
+    password: $6$A8TPSoM/hhcc6jkv$5WAmDVk6JP0xj76DmeO711VC2grPZJAXmS88tiG13kowziCM1U0zZKNPkMhPv3HiSNV6c2JslSpsfA.UbmlQV1
+  storage:
+    layout:
+      name: direct
+  ssh:
+    install-server: yes
+  locale: es_ES.UTF-8
+  keyboard: {layout: es, variant: ''}
+  packages:
+    - ubuntu-desktop
+  user-data:
+    packages:
+    - dbus-x11
+    runcmd:
+     - wget https://github.com/DonComProject/arenita/raw/main/src/deb-files/veyon_4.8.3.0-ubuntu.jammy_amd64.deb -O /tmp/veyon.deb
+     - dpkg -i /tmp/veyon.deb
+     - apt-get install -f -y
+     - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
+     - sudo -u admin dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'
