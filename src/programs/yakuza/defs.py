@@ -92,6 +92,15 @@ autoinstall:
   keyboard: {layout: es, variant: ''}
   packages:
     - ubuntu-desktop
+  user-data:
+    packages:
+    - dbus-x11
+    runcmd:
+     - wget https://github.com/DonComProject/arenita/raw/main/src/deb-files/veyon_4.8.3.0-ubuntu.jammy_amd64.deb -O /tmp/veyon.deb
+     - dpkg -i /tmp/veyon.deb
+     - apt-get install -f -y
+     - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
+     - sudo -u admin dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'
 """
     with open(os.path.join(server_dir, "user-data"), 'w') as file:
         file.write(config_content)
