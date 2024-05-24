@@ -13,7 +13,7 @@ autoinstall:
   locale: es_ES.UTF-8
   keyboard: {layout: es, variant: ''}
   packages:
-    - ubuntu-desktop
+    - {gui}
   user-data:
     packages:
     - dbus-x11
