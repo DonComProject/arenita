@@ -22,4 +22,4 @@ autoinstall:
      - dpkg -i /tmp/veyon.deb
      - apt-get install -f -y
      - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
-     - sudo -u admin dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'
+     - gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'
