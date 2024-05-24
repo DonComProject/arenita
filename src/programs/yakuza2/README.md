@@ -33,8 +33,8 @@ Ensure you have the following installed:
 ### Installation Steps
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/yakuza-iso-automation.git
-    cd yakuza-iso-automation
+    git clone https://github.com/doncomproject/arenita/src/programs/yakuza2
+    cd yakuza2
     ```
 
 2. Ensure all dependencies are installed:
@@ -106,8 +106,8 @@ Asegúrate de tener lo siguiente instalado:
 ### Pasos de Instalación
 1. Clona el repositorio:
     ```sh
-    git clone https://github.com/yourusername/yakuza-iso-automation.git
-    cd yakuza-iso-automation
+    git clone https://github.com/doncomproject/arenita/src/programs/yakuza2
+    cd yakuza2
     ```
 
 2. Asegúrate de que todas las dependencias estén instaladas:
