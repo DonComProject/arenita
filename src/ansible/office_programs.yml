@@ -1,25 +1,25 @@
 ---
-- name: Instalar programas de ofimática
+- name: Install office programs
   hosts: all
   become: yes
-  tags: ofimatica
+  tags: office
 
   tasks:
   - name: Actualizar la lista de paquetes
     apt:
       update_cache: yes
 
-  - name: Instalar GnuCash
+  - name: Install GnuCash
     apt:
       name: gnucash
       state: present
 
-  - name: Instalar Scribus
+  - name: Install Scribus
     apt:
       name: scribus
       state: present
 
-  - name: Instalar Calibre
+  - name: Install Calibre
     apt:
       name: calibre
       state: present
