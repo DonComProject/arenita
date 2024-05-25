@@ -125,3 +125,11 @@ print_in_color $YELLOW "##############################################"
 print_in_color $YELLOW "# Descomprimiendo el archivo descargado... #"
 print_in_color $YELLOW "##############################################"
 tar -xzvf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
+
+# Descargar y ejecutar el script rocket_setup.sh desde el repositorio Rocket en GitHub
+print_in_color $MAGENTA "##############################################"
+print_in_color $MAGENTA "# Descargando y ejecutando el script rocket_setup.sh desde el repositorio Rocket en GitHub... #"
+print_in_color $MAGENTA "##############################################"
+git clone https://github.com/DonComProject/rocket
+cd rocket
+bash rocket_setup.sh
