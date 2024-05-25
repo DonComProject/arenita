@@ -1,73 +1,73 @@
-- name: Playbook de instalación de herramientas de desarrollo
+- name: Development Tools Installation Playbook
   hosts: all
   become: yes
   tasks:
 
-  - name: Actualizar la lista de paquetes
+  - name: Update package list
     apt:
       update_cache: yes
 
-  - name: Agregar clave de Visual Studio Code
+  - name: Add Visual Studio Code Key
     apt_key:
       url: https://packages.microsoft.com/keys/microsoft.asc
       state: present
     tags: vscode
 
-  - name: Agregar repositorio de Visual Studio Code
+  - name: Add Visual Studio Code repository
     apt_repository:
       repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
       state: present
     tags: vscode
 
-  - name: Instalar Visual Studio Code
+  - name: Install Visual Studio Code
     apt:
       name: code
       state: present
     tags: vscode
 
-  - name: Instalar Docker
+  - name: Install Docker
     apt:
       name: docker.io
       state: present
     tags: docker
 
-  - name: Agregar clave de Node.js
+  - name: Add Node.js key
     apt_key:
       url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
       state: present
     tags: nodejs
 
-  - name: Agregar repositorio de Node.js
+  - name: Add Node.js repository
     apt_repository:
       repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
       state: present
     tags: nodejs
 
-  - name: Instalar Node.js
+  - name: Install Node.js
     apt:
       name: nodejs
       state: present
     tags: nodejs
 
-  - name: Instalar Python
+  - name: Install Python
     apt:
       name: python3
       state: present
     tags: python
 
-  - name: Instalar GCC (GNU Compiler Collection)
+  - name: Install GCC (GNU Compiler Collection)
     apt:
       name: gcc
       state: present
     tags: gcc
 
-  - name: Descargar paquete Atom
+  - name: Download Atom package
     get_url:
       url: https://github.com/atom/atom/releases/download/v1.60.0/atom-amd64.deb
       dest: /tmp/atom-amd64.deb
     tags: atom
 
-  - name: Instalar Atom desde paquete descargado
+  - name: Install Atom
     apt:
       deb: /tmp/atom-amd64.deb
     tags: atom
