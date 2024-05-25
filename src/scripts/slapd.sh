@@ -31,3 +31,16 @@ sudo netstat -tulnp | grep slapd
 
 # Realizar una consulta LDAP simple para verificar el funcionamiento
 ldapsearch -x -H ldap://localhost -b dc=doncom,dc=com
+
+# Crear un archivo LDIF para el usuario admin
+cat <<EOF > admin.ldif
+dn: cn=admin,dc=doncom,dc=com
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+description: LDAP administrator
+userPassword: $(slappasswd -s davidtomas)
+EOF
+
+# Añadir el usuario admin al LDAP
+ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f admin.ldif
