@@ -106,3 +106,22 @@ print_in_color $CYAN "##############################################"
 print_in_color $CYAN "# Añadiendo la unidad organizativa users al LDAP, manín... #"
 print_in_color $CYAN "##############################################"
 ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f ou_users.ldif
+
+
+#Instalar OpenJDK, una implementación de código abierto de la plataforma Java.
+print_in_color $GREEN "##############################################"
+print_in_color $GREEN "# Añadiendo una implementación de código abierto de Java, manín... #"
+print_in_color $GREEN "##############################################"
+sudo apt install default-jdk
+
+# Descargar Apache Directory Studio
+print_in_color $RED "##############################################"
+print_in_color $RED "# Descargando Apache Directory Studio, manín... #"
+print_in_color $RED "##############################################"
+wget https://dlcdn.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
+
+# Descomprimir el archivo descargado
+print_in_color $YELLOW "##############################################"
+print_in_color $YELLOW "# Descomprimiendo el archivo descargado, manín... #"
+print_in_color $YELLOW "##############################################"
+tar -xzvf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
