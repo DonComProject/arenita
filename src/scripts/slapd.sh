@@ -14,6 +14,20 @@ echo "slapd slapd/dump_database select when needed" | sudo debconf-set-selection
 # Establecer el frontend de debconf a no interactivo
 export DEBIAN_FRONTEND=noninteractive
 
-# Actualizar la lista de paquetes e instalar slapd y ldap-utils
+# Actualizar la lista de paquetes
 sudo apt update
+
+# Instalar net-tools
+sudo apt install net-tools -y
+
+# Instalar slapd y ldap-utils
 sudo DEBIAN_FRONTEND=noninteractive apt install slapd ldap-utils -y
+
+# Verificar el estado del servicio slapd
+sudo systemctl status slapd
+
+# Verificar los puertos en los que slapd está escuchando
+sudo netstat -tulnp | grep slapd
+
+# Realizar una consulta LDAP simple para verificar el funcionamiento
+ldapsearch -x -H ldap://localhost -b dc=doncom,dc=com
