@@ -31,10 +31,12 @@ Welcome to the **Arenita** project repository. This project contains various scr
    ```
 2. Run the playbooks according to your needs:
    ```bash
-   ansible-playbook src/ansible/desarrollo.yml -k -b -K
-   ansible-playbook src/ansible/diseno_grafico.yml -k -b -K
-   ansible-playbook src/ansible/educacion.yml -k -b -K
+   ansible-playbook src/ansible/development.yml -k -b -K
+   ansible-playbook src/ansible/graphic_design.yml -k -b -K
+   ansible-playbook src/ansible/education.yml -k -b -K
    ansible-playbook src/ansible/multimedia.yml -k -b -K
+   ansible-playbook src/ansible/office_programs.yml -k -b -K
+   ansible-playbook src/ansible/browsing.yml -k -b -K
    ```
 
 ## License 📄
