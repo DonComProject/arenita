@@ -25,6 +25,15 @@ MAGENTA="35"
 CYAN="36"
 WHITE="37"
 
+# Directorio de trabajo
+WORK_DIR=~/doncom/ldap
+
+# Crear el directorio de trabajo si no existe
+mkdir -p $WORK_DIR
+
+# Cambiar al directorio de trabajo
+cd $WORK_DIR
+
 # Configurar debconf para evitar la interacción durante la instalación
 print_hashes $CYAN "Configurando debconf para evitar interacción..."
 echo "slapd slapd/password1 password davidtomas" | sudo debconf-set-selections
@@ -55,7 +64,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt install slapd ldap-utils -y
 
 # Verificar el estado del servicio slapd
 print_hashes $RED "Verificando el estado del servicio slapd..."
-sudo systemctl status slapd
+sudo systemctl status slapd --no-pager
 
 # Verificar los puertos en los que slapd está escuchando
 print_hashes $CYAN "Verificando los puertos en los que slapd está escuchando..."
@@ -79,6 +88,7 @@ EOF
 # Añadir el usuario admin al LDAP
 print_hashes $BLUE "Añadiendo el usuario admin al LDAP..."
 ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f admin.ldif
+rm admin.ldif 
 
 # Crear un archivo LDIF para la unidad organizativa users
 print_hashes $MAGENTA "Creando un archivo LDIF para la unidad organizativa users..."
@@ -91,6 +101,7 @@ EOF
 # Añadir la unidad organizativa users al LDAP
 print_hashes $CYAN "Añadiendo la unidad organizativa users al LDAP..."
 ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f ou_users.ldif
+rm ou_users.ldif
 
 # Instalar OpenJDK, una implementación de código abierto de la plataforma Java.
 print_hashes $GREEN "Añadiendo una implementación de código abierto de Java..."
@@ -103,6 +114,7 @@ wget https://dlcdn.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirecto
 # Descomprimir el archivo descargado
 print_hashes $YELLOW "Descomprimiendo el archivo descargado..."
 tar -xzvf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
+rm ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
 
 # Descargar y ejecutar el script rocket_setup.sh desde el repositorio Rocket en GitHub
 print_hashes $MAGENTA "Descargando y ejecutando el script rocket_setup.sh desde el repositorio Rocket en GitHub..."
