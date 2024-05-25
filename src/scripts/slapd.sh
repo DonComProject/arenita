@@ -90,3 +90,19 @@ print_in_color $BLUE "##############################################"
 print_in_color $BLUE "# Añadiendo el usuario admin al LDAP, manín... #"
 print_in_color $BLUE "##############################################"
 ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f admin.ldif
+
+# Crear un archivo LDIF para la unidad organizativa users
+print_in_color $MAGENTA "##############################################"
+print_in_color $MAGENTA "# Creando un archivo LDIF para la unidad organizativa users, manín... #"
+print_in_color $MAGENTA "##############################################"
+cat <<EOF > ou_users.ldif
+dn: ou=users,dc=doncom,dc=com
+objectClass: organizationalUnit
+ou: users
+EOF
+
+# Añadir la unidad organizativa users al LDAP
+print_in_color $CYAN "##############################################"
+print_in_color $CYAN "# Añadiendo la unidad organizativa users al LDAP, manín... #"
+print_in_color $CYAN "##############################################"
+ldapadd -x -D "cn=admin,dc=doncom,dc=com" -w davidtomas -f ou_users.ldif
