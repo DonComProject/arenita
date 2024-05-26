@@ -23,20 +23,16 @@ Welcome to the **Arenita** project repository. This project contains various scr
 
 ## Installation 🔧
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/DonComProject/arenita
-   cd arenita
-   ```
-2. Run the playbooks according to your needs:
-   ```bash
-   ansible-playbook src/ansible/development.yml -k -b -K
-   ansible-playbook src/ansible/graphic_design.yml -k -b -K
-   ansible-playbook src/ansible/education.yml -k -b -K
-   ansible-playbook src/ansible/multimedia.yml -k -b -K
-   ansible-playbook src/ansible/office_programs.yml -k -b -K
-   ansible-playbook src/ansible/browsing.yml -k -b -K
-   ```
+1. With all the other repositories
+```bash
+bash -c "$(curl https://doncom.me/install.sh)"
+```
+
+2. Clone the repository:
+```bash
+git clone https://github.com/DonComProject/arenita
+cd arenita
+```
 
 ## License 📄
 
