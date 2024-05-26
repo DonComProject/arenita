@@ -115,9 +115,3 @@ wget https://dlcdn.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirecto
 print_hashes $YELLOW "Descomprimiendo el archivo descargado..."
 tar -xzvf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
 rm ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz
-
-# Descargar y ejecutar el script rocket_setup.sh desde el repositorio Rocket en GitHub
-print_hashes $MAGENTA "Descargando y ejecutando el script rocket_setup.sh desde el repositorio Rocket en GitHub..."
-git clone https://github.com/DonComProject/rocket
-cd rocket
-bash rocket_setup.sh
