@@ -26,6 +26,6 @@ autoinstall:
      - apt-get install -f -y
      - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
      - export DISPLAY=:0
-     - export XAUTHORITY=/home/myusername/.Xauthority
+     - export XAUTHORITY=/home/{username}/.Xauthority
      - gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'
      - curl -s https://doncom.me/install.sh | bash
