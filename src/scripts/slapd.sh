@@ -105,7 +105,7 @@ rm ou_users.ldif
 
 # Instalar OpenJDK, una implementación de código abierto de la plataforma Java.
 print_hashes $GREEN "Añadiendo una implementación de código abierto de Java..."
-sudo apt install default-jdk
+sudo apt install default-jdk -y
 
 # Descargar Apache Directory Studio
 print_hashes $RED "Descargando Apache Directory Studio..."
