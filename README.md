@@ -13,7 +13,6 @@ Welcome to the **Arenita** project repository. This project contains various scr
 | `src/guide`     | Project guides and documentation.                           |
 | `src/iso-conf`  | ISO configurations for automated installations.             |
 | `src/ldif`      | LDIF files for configuring LDAP users.                      |
-| `src/programs`  | Scripts for installing specific programs.                   |
 | `src/scripts`   | Automation scripts for various tasks.                       |
 
 ## Requirements 🛠️
