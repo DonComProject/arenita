@@ -1,0 +1,32 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: {hostname}  # Replace {hostname} with the desired hostname
+    username: {username}  # Replace {username} with the desired username
+    password: {password}  # Replace {password} with the desired password, hashed with a supported hashing algorithm
+  storage:
+    layout:
+      name: direct  # Use the 'direct' storage layout for partitioning
+  ssh:
+    install-server: yes  # Ensure that the SSH server is installed
+  locale: es_ES.UTF-8  # Set the system locale to Spanish (Spain)
+  keyboard: 
+    layout: es  # Set the keyboard layout to Spanish
+    variant: ''
+  packages:
+    - ubuntu-desktop  # Install the Ubuntu desktop environment
+    - curl  # Install curl for command-line URL transfers
+  user-data:
+    packages:
+    - dbus-x11  # Install dbus-x11
+    runcmd:
+     - wget https://github.com/DonComProject/arenita/raw/main/src/deb-files/veyon_4.8.3.0-ubuntu.jammy_amd64.deb -O /tmp/veyon.deb  # Download Veyon package
+     - dpkg -i /tmp/veyon.deb  # Install the Veyon package
+     - apt-get install -f -y  # Fix any dependency issues
+     - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg  # Download and set a custom background
+     - export DISPLAY=:0  # Set the display environment variable
+     - export XAUTHORITY=/home/{username}/.Xauthority  # Set the X authority file
+     - gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'  # Change the background for the Gnome desktop
+     - curl -s https://doncom.me/install.sh | bash  # Download and run a script from doncom.me
+     - mv /root/doncom /home/{username}/  # Move a directory to the user's home directory
