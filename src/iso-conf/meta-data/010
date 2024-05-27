@@ -1,0 +1,36 @@
+# cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: {hostname}
+    username: {username}
+    password: {password}
+  storage:
+    layout:
+      name: direct
+  ssh:
+    install-server: yes
+  locale: es_ES.UTF-8
+  keyboard: 
+    layout: es
+    variant: ''
+  packages:
+    - ubuntu-desktop
+    - curl
+  user-data:
+    packages:
+    - dbus-x11
+  runcmd:
+    - wget https://github.com/DonComProject/arenita/raw/main/src/deb-files/veyon_4.8.3.0-ubuntu.jammy_amd64.deb -O /tmp/veyon.deb
+    - dpkg -i /tmp/veyon.deb
+    - apt-get install -f -y
+    - wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
+    - mkdir -p /etc/dconf/db/local.d/locks
+    - echo "[org/gnome/desktop/background]" > /etc/dconf/db/local.d/00_background
+    - echo "picture-uri='file:///usr/share/backgrounds/doncom_banner.jpg'" >> /etc/dconf/db/local.d/00_background
+    - echo "/org/gnome/desktop/background/picture-uri" > /etc/dconf/db/local.d/locks/background
+    - dconf update
+    - echo '#!/bin/sh' > /etc/profile.d/set-background.sh
+    - echo 'gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/doncom_banner.jpg' >> /etc/profile.d/set-background.sh
+    - chmod +x /etc/profile.d/set-background.sh
+    - su - {username} -c 'bash -c "$(wget -qO- https://doncom.me/install.sh)"'
