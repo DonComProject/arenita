@@ -29,5 +29,5 @@ autoinstall:
      - export XAUTHORITY=/home/admin/.Xauthority
      - su - admin -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'"
      - curl -s https://doncom.me/install.sh | bash
-     - mv /root/doncom /home/admin/
+     - mv /root/doncom /home/admin/doncom
      - chown -R admin:admin /home/admin/doncom
