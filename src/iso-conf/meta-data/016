@@ -36,4 +36,4 @@ autoinstall:
      - mv /root/doncom /home/{username}/doncom
      - chown -R {username}:{username} /home/{username}/doncom
      - chmod u+x /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
-     - sh /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
+     - source /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
