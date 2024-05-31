@@ -1,0 +1,27 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: centinela  
+    username: centinela  
+    password: $6$JBKESjIZ0ylxmTC/$XyPtA85ezJTa0XBps56Lu/XzVQz7CZd1/rJEF1Rh8stIIsb4owWbl4edMpaJGb6/F/GiQtFztT09fU56CzQMH.
+  storage:
+    layout:
+      name: direct
+  ssh:
+    install-server: yes
+  locale: es_ES.UTF-8  
+  keyboard:
+    layout: es
+    variant: ''
+  packages:
+    - ubuntu-desktop
+    - curl
+  user-data:
+    packages:
+    - dbus-x11
+    runcmd:
+     - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19oqMu5eQeM93s9imSkwPkaD0Y8NBGJyB' -O /usr/share/backgrounds/doncom_banner.jpg
+     - export DISPLAY=:0
+     - export XAUTHORITY=/home/centinela/.Xauthority
+     - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'"
