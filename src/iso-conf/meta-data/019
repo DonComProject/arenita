@@ -21,7 +21,7 @@ autoinstall:
     packages:
     - dbus-x11
     runcmd:
-     - wget --no-check-certificate 'https://drive.google.com/file/d/1dyFyjzEmcqY-PCes6mEpQTI3278eQyru/view?usp=sharing' -O /usr/share/backgrounds/silver.jpg
+     - wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1dyFyjzEmcqY-PCes6mEpQTI3278eQyru' -O /usr/share/backgrounds/silver.jpg
      - export DISPLAY=:0
      - export XAUTHORITY=/home/centinela/.Xauthority
      - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/silver.jpg'"
