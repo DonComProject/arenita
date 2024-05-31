@@ -21,7 +21,7 @@ autoinstall:
     packages:
     - dbus-x11
     runcmd:
-     - wget --no-check-certificate 'https://drive.google.com/file/d/1nBxtbPJSdqFAhnVUpPBiUK7dEcyvIZrB/view?usp=sharing' -O /usr/share/backgrounds/daemon.jpg
+     - wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1nBxtbPJSdqFAhnVUpPBiUK7dEcyvIZrB' -O /usr/share/backgrounds/daemon.jpg
      - export DISPLAY=:0
      - export XAUTHORITY=/home/centinela/.Xauthority
      - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/daemon.jpg'"
