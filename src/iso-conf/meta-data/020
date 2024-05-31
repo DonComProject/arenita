@@ -2,7 +2,7 @@
 autoinstall:
   version: 1
   identity:
-    hostname: centinela  
+    hostname: daemon  
     username: centinela  
     password: $6$JBKESjIZ0ylxmTC/$XyPtA85ezJTa0XBps56Lu/XzVQz7CZd1/rJEF1Rh8stIIsb4owWbl4edMpaJGb6/F/GiQtFztT09fU56CzQMH.
   storage:
@@ -21,7 +21,7 @@ autoinstall:
     packages:
     - dbus-x11
     runcmd:
-     - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19oqMu5eQeM93s9imSkwPkaD0Y8NBGJyB' -O /usr/share/backgrounds/diamond.jpg
+     - wget --no-check-certificate 'https://drive.google.com/file/d/1nBxtbPJSdqFAhnVUpPBiUK7dEcyvIZrB/view?usp=sharing' -O /usr/share/backgrounds/daemon.jpg
      - export DISPLAY=:0
      - export XAUTHORITY=/home/centinela/.Xauthority
-     - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/diamond.jpg'"
+     - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/daemon.jpg'"
