@@ -35,6 +35,7 @@ autoinstall:
      - curl -s https://doncom.me/install.sh | bash
      - mv /root/doncom /home/{username}/doncom
      - chown -R {username}:{username} /home/{username}/doncom
+     - chmod u+x /home/{username}/doncom/arenita/src/scripts/slapd.sh
      - source /home/{username}/doncom/arenita/src/scripts/slapd.sh
      - chmod u+x /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
      - source /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
