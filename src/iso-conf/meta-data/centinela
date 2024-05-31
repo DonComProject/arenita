@@ -21,7 +21,7 @@ autoinstall:
     packages:
     - dbus-x11
     runcmd:
-     - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19oqMu5eQeM93s9imSkwPkaD0Y8NBGJyB' -O /usr/share/backgrounds/doncom_banner.jpg
+     - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19oqMu5eQeM93s9imSkwPkaD0Y8NBGJyB' -O /usr/share/backgrounds/diamond.jpg
      - export DISPLAY=:0
      - export XAUTHORITY=/home/centinela/.Xauthority
-     - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'"
+     - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/diamond.jpg'"
