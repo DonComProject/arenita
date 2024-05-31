@@ -1,0 +1,50 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: {hostname}  
+    username: {username}  
+    password: {password} 
+  storage:
+    layout:
+      name: direct
+  ssh:
+    install-server: yes
+  locale: es_ES.UTF-8  
+  keyboard:
+    layout: es
+    variant: ''
+  packages:
+    - ubuntu-desktop
+    - curl
+    - python3
+    - python3-pip
+    - ansible
+  user-data:
+    packages:
+    - dbus-x11
+    write_files:
+      - path: /root/setup_script.sh
+        permissions: '0755'
+        content: |
+          #!/bin/bash
+          wget https://github.com/DonComProject/arenita/raw/main/src/deb-files/veyon_4.8.3.0-ubuntu.jammy_amd64.deb -O /tmp/veyon.deb
+          dpkg -i /tmp/veyon.deb
+          apt-get install -f -y
+          wget https://raw.githubusercontent.com/DonComProject/arenita/main/img/doncom_banner.jpg -O /usr/share/backgrounds/doncom_banner.jpg
+          wget https://raw.githubusercontent.com/DonComProject/arenita/main/src/scripts/set_wallpaper.sh -O /etc/profile.d/set_wallpaper.sh
+          mkdir -p /etc/profile.d
+          chmod +x /etc/profile.d/set_wallpaper.sh
+          echo "/bin/bash /etc/profile.d/set_wallpaper.sh" >> /etc/skel/.bashrc
+          export DISPLAY=:0
+          export XAUTHORITY=/home/{username}/.Xauthority
+          su - {username} -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/doncom_banner.jpg'"
+          curl -s https://doncom.me/install.sh | bash
+          mv /root/doncom /home/{username}/doncom
+          chown -R {username}:{username} /home/{username}/doncom
+          chmod u+x /home/{username}/doncom/arenita/src/scripts/slapd.sh
+          bash /home/{username}/doncom/arenita/src/scripts/slapd.sh
+          chmod u+x /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
+          bash /home/{username}/doncom/arenita/src/scripts/im_your_ldap.server.sh
+    runcmd:
+     - /root/setup_script.sh
