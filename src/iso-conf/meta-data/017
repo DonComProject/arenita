@@ -21,7 +21,7 @@ autoinstall:
     packages:
     - dbus-x11
     runcmd:
-     - wget --no-check-certificate 'https://drive.google.com/file/d/1cSYSTWu2f6jD3Hvzkkf5H2MSU3Kym2D9/view?usp=sharing' -O /usr/share/backgrounds/cooper.jpg
+     - wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1cSYSTWu2f6jD3Hvzkkf5H2MSU3Kym2D9' -O /usr/share/backgrounds/cooper.jpg
      - export DISPLAY=:0
      - export XAUTHORITY=/home/centinela/.Xauthority
      - su - centinela -c "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/cooper.jpg'"
