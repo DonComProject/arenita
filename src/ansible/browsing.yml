@@ -1,6 +1,6 @@
 ---
 - name: Browsing tools installation playbook
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
 
