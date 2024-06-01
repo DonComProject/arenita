@@ -1,10 +1,20 @@
 #!/bin/bash
 
-#!/bin/bash
+# Ruta del archivo que contiene la dirección IP del servidor LDAP
+env_file="/home/usuario/doncom/.environment"
+
+# Comprobar si el archivo de entorno existe y es legible
+if [ ! -r "$env_file" ]; then
+    echo "No se puede leer el archivo de entorno: $env_file"
+    exit 1
+fi
+
+# Leer la dirección IP del servidor LDAP del archivo de entorno
+IP_SERVER_LDAP=$(<"$env_file")
 
 # Comprobar si la variable de entorno IP_SERVER_LDAP está definida
 if [ -z "$IP_SERVER_LDAP" ]; then
-    echo "La variable de entorno IP_SERVER_LDAP no está definida."
+    echo "La variable de entorno IP_SERVER_LDAP no está definida en $env_file."
     exit 1
 fi
 
@@ -21,8 +31,11 @@ echo "slapd slapd/backend string MDB" | sudo debconf-set-selections
 echo "slapd slapd/purge_database boolean false" | sudo debconf-set-selections
 echo "slapd slapd/move_old_database boolean true" | sudo debconf-set-selections
 
-sudo sed -i "s/ldap://IP_SERVER_LDAP/ldap:\/\/$IP_SERVER_LDAP/g" /etc/ldap/ldap.conf
-sudo sed -i "s/ldap://IP_SERVER_LDAP/ldap:\/\/$IP_SERVER_LDAP/g" /etc/nslcd.conf
+# Actualizar la configuración de ldap.conf con la dirección IP del servidor LDAP
+echo "uri ldap://$IP_SERVER_LDAP" | sudo tee /etc/ldap/ldap.conf > /dev/null
+
+# Actualizar la configuración de nslcd.conf con la dirección IP del servidor LDAP
+echo "uri ldap://$IP_SERVER_LDAP" | sudo tee /etc/nslcd.conf > /dev/null
 
 # Instalar los paquetes slapd y ldap-utils de forma no interactiva
 sudo apt install slapd ldap-utils -y
