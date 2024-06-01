@@ -1,6 +1,6 @@
 ---
 - name: Educational tools installation playbook
-  hosts: localhost
+  hosts: all
   become: yes
   tasks:
 
