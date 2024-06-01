@@ -1,5 +1,5 @@
 - name: Development Tools Installation Playbook
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
 
