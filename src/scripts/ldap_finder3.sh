@@ -38,7 +38,7 @@ done <<< "$services"
 
 if [ -n "$ipv4_address" ]; then
     # Agregar o actualizar la variable de entorno en el archivo
-    echo "export IP_SERVER_LDAP=$ipv4_address" > $env_file
+    echo "$ipv4_address" > $env_file
 
     echo "LDAP Server found with IPv4 address $ipv4_address"
 else
