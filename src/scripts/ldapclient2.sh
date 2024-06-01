@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ruta del archivo que contiene la dirección IP del servidor LDAP
-env_file="/home/usuario/doncom/.environment"
+env_file="/home/admin/doncom/.environment"
 
 # Comprobar si el archivo de entorno existe y es legible
 if [ ! -r "$env_file" ]; then
