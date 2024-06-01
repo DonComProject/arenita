@@ -1,6 +1,6 @@
 ---
 - name: Install office programs
-  hosts: localhost
+  hosts: all
   become: yes
   tags: office
 
