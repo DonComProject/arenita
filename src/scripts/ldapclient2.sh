@@ -21,6 +21,9 @@ echo "slapd slapd/backend string MDB" | sudo debconf-set-selections
 echo "slapd slapd/purge_database boolean false" | sudo debconf-set-selections
 echo "slapd slapd/move_old_database boolean true" | sudo debconf-set-selections
 
+sudo sed -i "s/ldap://IP_SERVER_LDAP/ldap:\/\/$IP_SERVER_LDAP/g" /etc/ldap.conf
+sudo sed -i "s/ldap://IP_SERVER_LDAP/ldap:\/\/$IP_SERVER_LDAP/g" /etc/nslcd.conf
+
 # Instalar los paquetes slapd y ldap-utils de forma no interactiva
 sudo apt install slapd ldap-utils -y
 
