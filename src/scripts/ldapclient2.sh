@@ -83,3 +83,5 @@ if ! grep -q "pam_mkhomedir.so" $COMMON_SESSION; then
 fi
 
 echo "Configuración completada."
+
+sudo systemctl restart nslcd
