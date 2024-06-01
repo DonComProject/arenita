@@ -8,7 +8,7 @@
 # DISCLAIMER
 # DISCLAIMER
 # EL 1 FUNCIONA EH, PERO ES QUE ESTE ES UN TESTTT
-env_file="/home/usuario/doncom/.environment"
+env_file="/home/admin/doncom/.environment"
 env_dir=$(dirname "$env_file")
 if [ ! -d "$env_dir" ]; then
     mkdir -p "$env_dir"
