@@ -10,6 +10,7 @@ Welcome to the **Arenita** project repository. This project contains various scr
 |-----------------|-------------------------------------------------------------|
 | `src/ansible`   | Ansible playbooks for installing various tools.             |
 | `src/conf`      | Configuration files used in the project.                    |
+| `src/deb-files` | Files .deb                                                  |
 | `src/guide`     | Project guides and documentation.                           |
 | `src/iso-conf`  | ISO configurations for automated installations.             |
 | `src/ldif`      | LDIF files for configuring LDAP users.                      |
