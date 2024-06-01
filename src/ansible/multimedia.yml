@@ -1,6 +1,6 @@
 ---
 - name: Multimedia application installation playbook
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
 
