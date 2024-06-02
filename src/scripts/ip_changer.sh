@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Verificar si se pasaron los argumentos necesarios
+# Verificar si se pasaron los argumentos necesarios (condicional)
 if [ "$#" -ne 3 ]; then
     echo "Uso: $0 <interfaz> <nueva_ip> <mascara>"
     echo "Ejemplo: $0 enp3s0 192.168.12.200/24"
