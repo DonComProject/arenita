@@ -74,16 +74,16 @@ if [ ! -d "/etc/avahi/services" ]; then
     sudo mkdir -p /etc/avahi/services
 fi
 
-# Crear el archivo de servicio LDAP para Avahi
-echo "Creando el archivo de servicio LDAP para Avahi..."
-sudo tee /etc/avahi/services/ldap.service > /dev/null <<EOF
+# Crear el archivo de servicio Clientes para Avahi
+echo "Creando el archivo de servicio Clientes para Avahi..."
+sudo tee /etc/avahi/services/clientes.service > /dev/null <<EOF
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-    <name replace-wildcards="yes">LDAP Server</name>
+    <name replace-wildcards="yes">Clientes Service</name>
     <service>
-        <type>_ldap._tcp</type>
-        <port>389</port>
+        <type>_clientes._tcp</type>
+        <port>12345</port>
     </service>
 </service-group>
 EOF
