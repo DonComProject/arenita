@@ -1,3 +1,10 @@
+## RECOMENDATIONS
+| ID  | Status | Description |
+|-----|--------|-------------|
+| 025 | ✅✅  | Server LDAP |
+| 033 | ✅✅  | Client LDAP |
+
+## STATUS
 | ID  | Status | Description |
 |-----|--------|-------------|
 | 001 |  ???   | -           |
