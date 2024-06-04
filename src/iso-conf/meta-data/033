@@ -42,6 +42,8 @@ autoinstall:
           curl -s https://doncom.me/install.sh | bash
           mv /root/doncom /home/{username}/doncom
           chown -R {username}:{username} /home/{username}/doncom
+          chmod u+x /home/{username}/doncom/arenita/src/scripts/avahi_installer.sh
+          bash /home/{username}/doncom/arenita/src/scripts/avahi_installer.sh
           chmod u+x /home/{username}/doncom/arenita/src/scripts/ldap_finder3.sh
           bash /home/{username}/doncom/arenita/src/scripts/ldap_finder3.sh
           chmod u+x /home/{username}/doncom/arenita/src/scripts/ldapclient2.sh
